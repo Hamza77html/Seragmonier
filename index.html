@@ -2,37 +2,75 @@
 <html>
 <head>
   <title>Prayer Timings</title>
-  </head>
-  <body>
-    <form id="prayer-timings-form">
-        <label for="city">المدينة :</label>
-            <input type="text" id="city" name="city">
-                <br>
-                    <label for="country">البلد:</label>
-                        <input type="text" id="country" name="country">
-                            <br>
-                                <label for="method">طريقة الحساب:</label>
-                                    <select id="method" name="method">
-                                          <option value="0">Shia Ithna-Ansari</option>
-                                                <option value="1">University of Islamic Sciences, Karachi</option>
-                                                      <option value="2">Islamic Society of North America</option>
-                                                            <option value="3">Muslim World League</option>
-                                                                  <option value="4">Umm Al-Qura University, Makkah</option>
-                                                                        <option value="5">Egyptian General Authority of Survey</option>
-                                                                              <option value="6">Institute of Geophysics, University of Tehran</option>
-                                                                                    <option value="7">Gulf Region</option>
-                                                                                          <option value="8">Kuwait</option>
-                                                                                                <option value="9">Qatar</option>
-                                                                                                      <option value="10">Majlis Ugama Islam Singapura, Singapore</option>
-                                                                                                            <option value="11">Union Organization islamic de France</option>
-                                                                                                                  <option value="12">Diyanet İşleri Başkanlığı, Turkey</option>
-                                                                                                                      </select>
-                                                                                                                          <br>
-                                                                                                                        <input type="submit"value="احصل على مواعيد الصلاة">
-                                                                                                                                </form>
-                                                                                                                                  <div id="prayer-timings"></div>
-                                                                                                                                    <script src="main.js"></script>
-                                                                                                                                    </body>
-                                                                                                                                    </html>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <style>
+          table {
+                border-collapse: collapse;
+                      margin: 20px 0;
+                          }
+
+                              td, th {
+                                    border: 1px solid black;
+                                          padding: 10px;
+                                              }
+                                                </style>
+                                                </head>
+                                                <body>
+                                                  <form id="prayer-timings-form">
+                                                      <label for="city">City:</label>
+                                                          <input type="text" id="city" name="city" value="Cairo">
+                                                              <br>
+                                                                  <label for="country">Country:</label>
+                                                                      <input type="text" id="country" name="country" value="Egypt">
+                                                                          <br>
+                                                                              <label for="date">Date:</label>
+                                                                                  <input type="date" id="date" name="date" value="2023-04-15">
+                                                                                      <br>
+                                                                                          <input type="submit" value="Get Prayer Timings">
+                                                                                            </form>
+                                                                                              <div id="prayer-timings"></div>
+                                                                                                <script>
+                                                                                                    $('#prayer-timings-form').submit(function(event) {
+                                                                                                          event.preventDefault();
+                                                                                                                const city = $('#city').val();
+                                                                                                                      const country = $('#country').val();
+                                                                                                                            const date = $('#date').val();
+                                                                                                                                  const method = 8; // Method 8 is the method for Kuwait
+                                                                                                                                        const url = `https://api.aladhan.com/v1/timingsByCity/${date}?city=${city}&country=${country}&method=${method}`;
+
+                                                                                                                                              $.get(url, function(data) {
+                                                                                                                                                      const timings = data.data.timings;
+                                                                                                                                                              let tableHtml = '<table>';
+                                                                                                                                                                      tableHtml += '<thead><tr><th>Prayer</th><th>Timing</th></tr></thead>';
+                                                                                                                                                                              tableHtml += '<tbody>';
+                                                                                                                                                                                      for (let prayer in timings) {
+                                                                                                                                                                                                tableHtml += `<tr><td>${prayer}</td><td>${timings[prayer]}</td></tr>`;
+                                                                                                                                                                                                        }
+                                                                                                                                                                                                                tableHtml += '</tbody></table>';
+
+                                                                                                                                                                                                                        $('#prayer-timings').html(tableHtml);
+                                                                                                                                                                                                                              }).fail(function() {
+                                                                                                                                                                                                                                      $('#prayer-timings').text('Failed to retrieve prayer timings.');
+                                                                                                                                                                                                                                            });
+                                                                                                                                                                                                                                                });
+                                                                                                                                                                                                                                                  </script>
+                                                                                                                                                                                                                                                  </body>
+                                                                                                                                                                                                                                                  </html>
+                                                                                                                                                                                                                                                  
+
+                          
+                  
+                                            
+                                                                                
+                                                                                                      
+                                                                                                                
+                                                                                                                      
+                                                                                                                          
+                                                                                      
+                                                                                                                            
+                                                                                                                                
+                              
+                                                                                                                                  
+                                                                                                                                  
 
       
