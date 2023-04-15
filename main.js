@@ -1,21 +1,32 @@
-fetch('https://example.com/api/data')
+const prayerTimings = document.getElementById('prayer-timings');
+
+fetch('https://api.aladhan.com/v1/timingsByCity/15-04-2023?city=cairo&country=egypt&method=8')
   .then(response => response.json())
     .then(data => {
-        // Do something with the data, such as assigning it to a variable
-            const apiData = data;
-              })
-                .catch(error => console.error(error));
-                const data = {
-                    name: 'John Doe',
-                      email: 'johndoe@example.com'
-                      };
+        const date = document.createElement('h2');
+            date.textContent = data.date.readable;
+                prayerTimings.appendChild(date);
 
-                      axios.post('https://example.com/api/user', data)
-                        .then(response => {
-                            // Do something with the response data, such as assigning it to a variable
-                                const responseData = response.data;
-                                  })
-                                    .catch(error => console.error(error));
+                    for (const prayerName in data.timings) {
+                          const prayerTime = document.createElement('p');
+                                prayerTime.textContent = `${prayerName}: ${data.timings[prayerName]}`;
+                                      prayerTimings.appendChild(prayerTime);
+                                          }
+                                            })
+                                              .catch(error => console.error(error));
+                                              
+
+        
+        
+            
+              
+            
+                  
+              
+                      
+
+              
+                        
                                     
-                }
+                
 
