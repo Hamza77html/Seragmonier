@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Prayer Timings Example</title>
+  <title>Prayer Timings</title>
   </head>
   <body>
-    <div id="prayer-timings"></div>
-      <script src="main.js"></script>
-      </body>
-      </html>
+    <form id="prayer-timings-form">
+        <label for="city">City:</label>
+            <input type="text" id="city" name="city">
+                <br>
+                    <label for="country">Country:</label>
+                        <input type="text" id="country" name="country">
+                            <br>
+                                <label for="method">Calculation method:</label>
+                                    <select id="method" name="method">
+                                          <option value="0">Shia Ithna-Ansari</option>
+                                                <option value="1">University of Islamic Sciences, Karachi</option>
+                                                      <option value="2">Islamic Society of North America</option>
+                                                            <option value="3">Muslim World League</option>
+                                                                  <option value="4">Umm Al-Qura University, Makkah</option>
+                                                                        <option value="5">Egyptian General Authority of Survey</option>
+                                                                              <option value="6">Institute of Geophysics, University of Tehran</option>
+                                                                                    <option value="7">Gulf Region</option>
+                                                                                          <option value="8">Kuwait</option>
+                                                                                                <option value="9">Qatar</option>
+                                                                                                      <option value="10">Majlis Ugama Islam Singapura, Singapore</option>
+                                                                                                            <option value="11">Union Organization islamic de France</option>
+                                                                                                                  <option value="12">Diyanet İşleri Başkanlığı, Turkey</option>
+                                                                                                                      </select>
+                                                                                                                          <br>
+                                                                                                                              <input type="submit" value="Get Prayer Timings">
+                                                                                                                                </form>
+                                                                                                                                  <div id="prayer-timings"></div>
+                                                                                                                                    <script src="main.js"></script>
+                                                                                                                                    </body>
+                                                                                                                                    </html>
+                                                                                                                                    
       
