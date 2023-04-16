@@ -55,11 +55,11 @@
                                                                                             
                                                                                               <div id="prayer-timings"></div>
                                                                                                 <script>
-                                                                                                     {
-                                                                                                          event.preventDefault();
-                                                                                                                const city = $('#city').val();
-                                                                                                                      const country = $('#country').val();
-                                                                                                                            const date = $('#date').val();
+                                                                                                     
+                                                                                                
+                                                                                                
+                                                                                                
+                                                                                                                  
                                                                                                                                   const method = 8; // Method 8 is the method for Kuwait
                                                                                                                                         const url = `https://api.aladhan.com/v1/timingsByCity/${date}?city=${city}&country=${country}&method=${method}`;
 
@@ -77,7 +77,7 @@
                                                                                                                                                                                                                               }).fail(function() {
                                                                                                                                                                                                                                       $('#prayer-timings').text('Failed to retrieve prayer timings.');
                                                                                                                                                                                                                                             });
-                                                                                                                                                                                                                                                });
+                                                                                                                                                                                                                                                
                                                                                                                                                                                                                                                   </script>
                                                                                                                                                                                                                                                   </body>
                                                                                                                                                                                                                                                   </html>
